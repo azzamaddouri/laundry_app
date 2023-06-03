@@ -1,0 +1,64 @@
+<div>
+  <app-no-internet *ngIf="!isOnline"></app-no-internet>
+</div>
+<div style="height: 100%" *ngIf="isOnline">
+  <mat-drawer-container class="containerApp" autosize>
+    <div class="header" *ngIf="isUserConnected" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon class="mat-48" style="color: white">menu</mat-icon>
+      </button>
+
+      <div fxFlex="flex">
+
+      </div>
+
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu" #menuTrigger>
+        <mat-icon class="mat-48" style="color: white">account_circle</mat-icon>
+      </button>
+    </div>
+
+    <mat-drawer #drawer class="sidenav" mode="side" opened="{{isUserConnected}}" >
+      <div>
+        <img src="assets/logo.png" style="height: 80px">
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item matRipple *ngFor="let item of menuList" (click)="itemClick(item)">
+            <mat-icon mat-list-icon style="color:#3adfd8;">{{item.icon}}</mat-icon>
+            <div mat-line color="primary">{{item.libelle}}</div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>
+
+<mat-menu #profileMenu="matMenu">
+  <div fxLayout="column" fxLayoutAlign="center center"  style="margin: 16px">
+    <img src="assets/avatar.png" style="height: 200px">
+    <div fxFlexAlign="stretch">
+      <div>Prénom: {{userProfil.firstName}}</div>
+      <div>Nom: {{userProfil.lastName}}</div>
+      <div>Nom d'utilisateur: {{userProfil.userName}}</div>
+      <div>Adresse e-mail: {{userProfil.email}}</div>
+    </div>
+    <button mat-button color="warn" (click)="logOut()">Déconnexion</button>
+  </div>
+</mat-menu>
+
+<mat-divider class="dividerclass"></mat-divider>
+<mat-toolbar class="footer mat-elevation-z2" >
+
+
+  <div>
+    <span class="text-muted"> © 2022, Tous droits réservés. Crée par <a href="https://www.uptech.com.tn/" target="_blank">UPTech</a></span>
+  </div>
+
+
+
+</mat-toolbar>

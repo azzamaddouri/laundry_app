@@ -1,0 +1,72 @@
+
+<mat-progress-bar class="col-12" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="container">
+  <div class="row">
+    <div class="path">
+      Gestion des utilisateurs > Liste des utilisateurs
+    </div>
+  </div>
+  <h1 class="title">Liste des utilisateurs</h1>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Recherche dans le tableau" #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button class="buttonstar" (click)="adddUser()">
+      <mat-icon>add</mat-icon> Ajouter utilisateur
+    </button>
+
+  </div>
+
+
+  <div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell matRipple *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+        <mat-cell matRipple *matCellDef="let row"> {{row.userInfo.email}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+        <mat-cell matRipple *matCellDef="let row"> {{row.userInfo.firstName}} </mat-cell>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+        <mat-cell matRipple *matCellDef="let row"> {{row.userInfo.lastName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="editAction" stickyEnd>
+        <mat-header-cell *matHeaderCellDef> Edit</mat-header-cell>
+        <mat-cell *matCellDef="let row" (click)="$event.stopPropagation()">
+          <button mat-icon-button (click)="editUser(row)" *ngIf="row.deletable">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="displayUserDetails(row)"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Aucune donnée</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>

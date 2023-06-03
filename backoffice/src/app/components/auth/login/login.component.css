@@ -1,0 +1,22 @@
+mat-card{
+            border-radius:5%;
+            width:27%;
+
+        }
+.logo{
+    width: 40%;
+}
+p{
+      font-weight: 500;
+      color: #3f3f3f;
+      font-size: 20px;
+      font-family: 'Segoe UI';
+}
+button.mat-raised-button{
+ background-color: #3adfd8;
+ color:white;
+
+}
+button.mat-button{
+color: #3adfd8;}
+

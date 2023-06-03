@@ -1,0 +1,101 @@
+.containerApp {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.sidenav-content {
+  height: 88%;
+  width: 100%;
+  background-color: white;
+}
+
+.sidenav {
+  padding: 20px;
+
+}
+
+.header{
+  width: 100%;
+  height: 7%;
+  background-color: #164193;
+  padding: 12px 12px 12px 12px;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #00c3ff;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #00c3ff;
+}
+
+.mat-flat-button{
+  background-color: #164193;
+  color: white;
+}
+
+.info-snackbar {
+  background: #00c3ff;
+  /*color: #164193;*/
+}
+
+.error-snackbar {
+  background: #f44336;
+  /*color: #f44336;*/
+}
+
+.success-snackbar {
+  background: #34a853;
+  /*color: #34a853;*/
+}
+
+
+@media only screen and (max-width: 768px) {
+  .title{
+    font-size: 16px;
+  }
+}
+
+.mat-list-item {
+  cursor: default;
+
+}
+
+
+
+/* FOOTER */
+
+
+.footer{
+
+  height: 40px;
+
+  display: flex !important;
+  background-color: white;
+  font-family: Arial;
+}
+
+
+.text-muted{
+  font-size: 12px;
+  color: rgb(155, 155, 155);
+}
+
+.footer-right{
+  justify-content: left;
+  justify-items: center;
+}
+
+a{
+  padding-right: 1rem;
+  color: #14249f;
+  text-decoration: none;
+}
+
+
+
+::ng-deep .dividerclass{
+
+  opacity: 0.1;
+}

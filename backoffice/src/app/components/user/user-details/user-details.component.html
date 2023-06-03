@@ -1,0 +1,22 @@
+<div>
+  <mat-progress-bar class="col-12" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+  <div fxLayout="row">
+    <div fxFlex="60">
+      <h3>Prénom: {{selectedUser.userInfo.firstName}}</h3>
+      <h3>Nom: {{selectedUser.userInfo.lastName}}</h3>
+      <h3>Nom d'utilisateur: {{selectedUser.userInfo.userName}}</h3>
+      <h3>Adresse e-mail: {{selectedUser.userInfo.email}}</h3>
+    </div>
+    <div fxLayout="column" >
+      <h3>Liste des roles: </h3>
+      <h5 *ngFor="let item of selectedUser.roleList">->{{item.libelle}}</h5>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around  center">
+  <mat-slide-toggle [checked]="selectedUser.archived" (change)="archiveUser($event)" *ngIf="selectedUser.deletable">Archivé</mat-slide-toggle>
+  <mat-slide-toggle [checked]="selectedUser.enabled" (change)="enableUser($event)" *ngIf="selectedUser.deletable">Activé</mat-slide-toggle>
+  <button mat-flat-button color="primary"(click)="sendPasswordEmail()" *ngIf="selectedUser.deletable">Envoyer Email de mot de passe</button>
+</div>

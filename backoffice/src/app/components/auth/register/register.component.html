@@ -1,0 +1,71 @@
+<div class="centerCard">
+  <mat-card>
+    <mat-card-header fxLayout="column" fxLayoutAlign="center center" >
+      <br>
+      <img class="logo" src="/assets/logo.png">
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <div fxLayout="column">
+        <p>S'identifier pour wash & go</p>
+        <br>
+        <mat-progress-bar  mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+        <mat-form-field appearance="outline" >
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="Saisissez nom" [formControl]="firstNameFC" required [(ngModel)]="nom">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="firstNameFC.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <input matInput placeholder="Saisissez Prénom" [formControl]="lastNameFC" required [(ngModel)]="prenom">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="firstNameFC.invalid">{{getLastNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Pseudo</mat-label>
+          <input matInput placeholder="Saisissez Pseudo" [formControl]="pseudoFC" required [(ngModel)]="username">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="pseudoFC.invalid">{{getLastNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Saisissez Email"  [formControl]="emailFC" required [(ngModel)]="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="emailFC.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hidePwd ? 'password' : 'text'" [formControl]="pwdFC" required [(ngModel)]="password" >
+          <button mat-icon-button matSuffix (click)="hidePwd = !hidePwd" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePwd">
+            <mat-icon>{{hidePwd ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="emailFC.invalid">{{getPwdErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hidePwd ? 'password' : 'text'" [formControl]="confirmPwdFC" required [(ngModel)]="confirmPwd" >
+          <button mat-icon-button matSuffix (click)="hidePwd = !hidePwd" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePwd">
+            <mat-icon>{{hidePwd ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPwdFC.invalid ">{{getConfirmPwdErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <div div fxLayout="row" fxLayoutAlign="space-between center" >
+          <button mat-flat-button color="warn"  (click)="annuler()">Annuler</button>
+          <button mat-flat-button style=" background-color: #3adfd8;
+ color:white;" (click)="submitForm()">Register</button>
+
+        </div>
+        <br>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,40 @@
+<div class="centerCard" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+      <mat-progress-bar  class="col-12" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+      <br>
+      <img class="logo" src="/assets/logo.png">
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <p>Se connecter pour wash & go</p>
+      <br>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Entrer votre identifiant</mat-label>
+          <input matInput placeholder="E-mail ou pseudo" [formControl]="userNameFC" [(ngModel)]="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="userNameFC.invalid">{{getUserNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hidePwd ? 'password' : 'text'" [formControl]="pwdFC" [(ngModel)]="password" required>
+          <button mat-icon-button matSuffix (click)="hidePwd = !hidePwd" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePwd">
+            <mat-icon>{{hidePwd ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="pwdFC.invalid">{{getPwdErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button  (click)="login()" (keydown.enter)='login()'>Connexion</button>
+        <br>
+        <button mat-button  (click)="forgetPwd()">Mot de passe oubliée</button>
+        <br>
+        <br>
+        <div style="background-color: lightgrey; height: 1px; width: 90%; margin-top: 6px; margin-bottom: 6px"></div>
+        <br>
+        <button mat-raised-button  (click)="register()">S'enregistrer</button>
+        <br>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

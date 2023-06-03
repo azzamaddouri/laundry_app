@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.centerCard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.ajouterBtn {
+  background-color: cadetblue;
+  color: white;
+}
+
+
+.path{
+  margin: 0px 15px 0;
+  padding: 0;
+  position: relative;
+  margin-top: 15px;
+  font-size: 13px;
+  color: gray;
+  max-width: 90%;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.buttonstar{
+  background-color: #14249f;
+  color: white;
+  margin: 10px;
+
+}
+
+.title{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}

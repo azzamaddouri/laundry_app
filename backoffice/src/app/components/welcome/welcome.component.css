@@ -1,0 +1,49 @@
+.mat-toolbar{
+    background-color: white;
+}
+.logo{
+    width: 8%;
+  margin-top:1%;
+  margin-left:2%
+
+}
+.example-spacer {
+      flex: 1 1 auto;
+}
+a{
+        font-weight: bold;
+        color: #3adfd8;
+        font-size: 20px;
+        font-family: 'Segoe UI';
+        width: 170px;
+}
+.divLeft{
+   float: left;
+   margin-top: 5%;
+   width: 40%;
+}
+h1{
+    font-weight: bold;
+    color: #3f3f3f;
+    font-size: 50px;
+    font-family: 'Segoe UI';
+    padding-left: 15%;
+    margin-top:15%;
+}
+section{
+    padding-left: 20%;
+    padding-top: 10%;
+}
+p{
+      font-weight: bold;
+      color: #3f3f3f;
+      font-size: 20px;
+      font-family: 'Segoe UI';
+}
+.divRight{
+    float: right;
+    width: 60%;
+}
+.laundry{
+width:100%
+}
